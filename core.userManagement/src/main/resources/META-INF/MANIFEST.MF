@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: thomashettel
+Build-Jdk: 1.6.0_22
+Bundle-Version: 0.0.1.SNAPSHOT
+Bundle-Name: Collabware User Management
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: collabware.usermanagement.internal
+
+

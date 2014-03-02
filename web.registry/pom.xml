@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>parent</artifactId>
+		<groupId>collabware</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../parent</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>registry</artifactId>
+	<packaging>bundle</packaging>
+	<name>Collabware Registry</name>
+	<url>http://www.springframework.org/osgi</url>
+
+
+	<dependencies>
+
+
+
+
+
+
+
+		<!-- test scoped dependencies -->
+
+
+
+
+		<!-- Equinox OSGi platform -->
+
+
+		<dependency>
+			<groupId>collabware</groupId>
+			<artifactId>utils</artifactId>
+			<version>${collabware.version}</version>
+			<type>bundle</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>collabware</groupId>
+			<artifactId>api</artifactId>
+			<version>${collabware.version}</version>
+			<type>bundle</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- for packaging as an OSGi bundle, we use the maven-bundle-plugin -->
+
+	<!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for more 
+		info -->
+	<build>
+		<resources>
+			<!-- standard Maven folder -->
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<!-- plus root folder -->
+			<resource>
+				<directory>.</directory>
+				<includes>
+					<include>plugin.xml</include>
+					<include>META-INF/*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+
+			<!-- alternative maven-bundle-plugin configuration -->
+			<!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for 
+				more info -->
+
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>1.4.0</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>package</phase>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<instructions>
+						<Private-Package>collabware.registry.internal</Private-Package>
+						<Export-Package>!collabware.registry.internal.*,collabware.registry.*</Export-Package>
+						<Include-Resource>src/main/resources</Include-Resource>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<testClassesDirectory>target/test-classes</testClassesDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

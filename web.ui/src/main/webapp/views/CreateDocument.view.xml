@@ -1,0 +1,33 @@
+<core:View xmlns="sap.ui.commons" xmlns:core="sap.ui.core" controllerName="views.CreateDocument"
+	xmlns:layout="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:ux3="sap.ui.ux3">
+	<html:style>
+	.DocumentTypes img {
+		height:30px;
+	}
+	</html:style>
+	<ux3:ToolPopup id="CreateNewDocumentPopup" title="Create New Document" modal="true" opener="CreateDocument" visible="false" open="open">
+	<layout:HorizontalLayout>
+	<layout:VerticalLayout>
+		<Label text="Document Type" labelFor="DocumentTypes"/>
+		<ListBox id="DocumentTypes" class="DocumentTypes" visibleItems="15" minWidth="200px" displayIcons="true"  items="{/editors}">
+			<core:ListItem key="{id}" text="{name}" tooltip="{description}" icon="{imageUrl}" />
+		</ListBox>
+	</layout:VerticalLayout>
+	
+	<layout:VerticalLayout class="LeftMargin">
+		<Label text="Document Name" labelFor="DocumentName"/>
+		<TextField id="DocumentName" width="200px"/>
+		<!-- <Label text="Collaborators" labelFor="Collaborators"/>
+		<ListBox id="Collaborators" class="DocumentTypes" visibleItems="10" minWidth="200px" items="{/contacts}" allowMultiSelect="true" displayIcons="true">
+				<core:ListItem key="{id}" text="{displayName}" tooltip="{description}" icon="{imageUrl}" />
+		</ListBox> -->
+
+	</layout:VerticalLayout>
+	
+	</layout:HorizontalLayout>
+		<ux3:buttons>
+			<Button text="Cancel" press="cancel"/>
+			<Button text="Create" press="create"/>
+		</ux3:buttons>
+	</ux3:ToolPopup>
+</core:View>

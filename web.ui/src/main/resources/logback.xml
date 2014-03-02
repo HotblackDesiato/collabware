@@ -1,0 +1,4 @@
+<configuration>
+	<logger name="org.cometd" level="ERROR" />
+	<logger name="collabware.collaboration.utils" level="ERROR" />
+</configuration>

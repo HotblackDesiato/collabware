@@ -1,0 +1,145 @@
+<core:View xmlns="sap.ui.commons" xmlns:core="sap.ui.core"
+	controllerName="views.Main" xmlns:layout="sap.ui.commons.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:ux3="sap.ui.ux3"
+	xmlns:m="sap.m" xmlns:tbl="sap.ui.table"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<html:style>
+	.sapUiAppHdrLogo img {
+		display:none;
+	}	
+	
+	.sapUiAppHdrLogo span {
+		font-size: 20px!important;
+		vertical-align: baseline;
+		padding-left: 6px;
+		padding-top: 3px;
+	}	
+	
+	.DocumentTypeImage {
+		height:30px;
+	}
+	
+	.DocumentTable {
+		margin:30px;
+	}
+	
+	.DocumentTableExtensions{
+		margin-bottom:20px;
+	}
+	
+	.DocumentLink{
+		font-weight:bold;
+		font-size:16px;
+	}
+	
+	.ParticipantRepeater {
+		display: inline-block;
+	}
+	
+	.ParticipantRepeater img {
+		height:25px;
+	}
+	
+	.ParticipantRepeater li {
+		display: inline-block;
+		margin:2px;
+	}
+	.Button{
+		font-size: 10pt;
+		line-height: 30px;
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	</html:style>
+	
+		
+	
+	<ApplicationHeader logoText="Collabware" userName="{/user/displayName}" logoff="logoff"/>
+	
+	
+	<tbl:Table rows="{/documents}" class="DocumentTable" id="DocumentTable"  minAutoRowCount="15" title="Your Documents" enableColumnReordering="false">
+		<tbl:noData>
+			<TextView class="sapUiTableCtrlEmptyMsg" text="You have no documents"/>
+		</tbl:noData>
+		
+		<tbl:toolbar>
+			<Toolbar design="Transparent" standalone="false">
+				<Button id="CreateDocument" text="Create ..." press="createDocument"  class="DocumentTableExtensions" />
+			</Toolbar>
+		</tbl:toolbar>
+		
+		<tbl:columns>
+			<tbl:Column name="Type" width="45px" sortProperty="type" resizable="false">
+				<tbl:label>
+					<Label text="Type"/>
+				</tbl:label>
+				<tbl:template>
+					<Image class="DocumentTypeImage" src="{imageUrl}"/>
+				</tbl:template>
+			</tbl:Column>
+			
+			<tbl:Column name="Name" sortProperty="name" resizable="false">
+				<tbl:label>
+					<Label text="Name"/>
+				</tbl:label>
+				<tbl:template>
+					<Link text="{name}" href="show/{id}" target="_blank" class="DocumentLink"/>
+				</tbl:template>
+			</tbl:Column>
+			
+			<tbl:Column name="Participants" width="auto" resizable="false">
+				<tbl:label>
+					<Label text="Participants"/>
+				</tbl:label>
+				<tbl:template>
+					<layout:HorizontalLayout>
+					<RowRepeater class="ParticipantRepeater" id="ParticipantsRepeater" design="BareShell" numberOfRows="7" rows="{participants}">
+						<noData><TextView text="No Participants"/></noData>
+						<Image src="{imageUrl}" tooltip="{displayName}"/>
+					</RowRepeater>
+					<core:Icon class="Button sapUiBtn sapUiBtnLite sapUiBtnS sapUiBtnStd" src="sap-icon://add" id="AddParticipant"
+							tooltip="Add Participant" press="showParticipantSelector" app:collaborationId="{id}" />
+					</layout:HorizontalLayout>
+				</tbl:template>
+			</tbl:Column>
+			
+			<tbl:Column name="Owner" sortProperty ="owner/displayName" width="120px" resizable="false">
+				<tbl:label>
+					<Label text="Owner"/>
+				</tbl:label>
+				<tbl:template>
+					<TextView text="{owner/displayName}"/>
+				</tbl:template>
+			</tbl:Column>
+			
+			<tbl:Column name="Created" width="120px" resizable="false" sortProperty="createdOn">
+				<tbl:label>
+					<Label text="Created"/>
+				</tbl:label>
+				<tbl:template>
+					<TextView text="{path:'createdOn', formatter:'formatFlexibleDate'}" tooltip="{path:'createdOn', formatter:'formatExactDate'}"/>
+				</tbl:template>
+			</tbl:Column>
+			
+			<tbl:Column name="Last Changed"  width="120px" resizable="false" sortProperty="lastChange/dateTime">
+				<tbl:label>
+					<Label text="Last Changed"/>
+				</tbl:label>
+				<tbl:template>
+					<TextView text="{path:'lastChange/dateTime', formatter:'formatFlexibleDate'}" tooltip="{path:'lastChange/dateTime', formatter:'formatExactDate'}"/>
+				</tbl:template>
+			</tbl:Column>
+			
+			<tbl:Column name="Last Changed By"  width="120px" resizable="false" sortProperty="lastChange/participant/displayName">
+				<tbl:label>
+					<Label text="Last Changed By"/>
+				</tbl:label>
+				<tbl:template>
+					<TextView text="{lastChange/participant/displayName}"/>
+				</tbl:template>
+			</tbl:Column>
+		</tbl:columns>
+	
+	</tbl:Table>
+
+</core:View>

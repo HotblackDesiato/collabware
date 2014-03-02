@@ -1,0 +1,4 @@
+bundlor.generated.manifest.autoformatting=false
+byte.code.scanning=false
+eclipse.preferences.version=1
+template.properties.files=template.properties;build.properties

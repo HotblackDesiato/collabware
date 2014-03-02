@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='jsclient'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User' />
+
+  <!-- We need the JUnit module in the main module,               -->
+  <!-- otherwise eclipse complains (Google plugin bug?)           -->
+  <inherits name='com.google.gwt.junit.JUnit' />
+
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name='com.google.gwt.user.theme.standard.Standard' />
+  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+  <inherits name='com.google.gwt.logging.Logging' />
+    <set-property name="gwt.logging.logLevel" value="INFO"/>
+    <set-property name="gwt.logging.enabled" value="TRUE"/>
+    
+    <set-property name="gwt.logging.popupHandler" value="DISABLED"/>
+    <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>
+
+  <!-- Other module inherits                                      -->
+  <inherits name='org.timepedia.exporter.Exporter'/>
+  <set-property name="export" value="yes"/>
+
+  <inherits name='com.google.gwt.json.JSON' />
+  <inherits name='collabware.api' />
+  <inherits name='collabware.model' />
+  <inherits name='collabware.utils' />
+  <inherits name='collabware.collaboration' />
+  <inherits name='collabware.userManagement' />
+  <inherits name='collabware.transformer' />
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='collabware.web.client.gwtClient' />
+
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client' />
+  <source path='shared' />
+
+</module>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="web.ui">
+        <wb-resource deploy-path="/" source-path="/target/classes"/>
+        <property name="java-output-path" value="/web.ui/target/classes"/>
+        <property name="context-root" value="web.ui"/>
+    </wb-module>
+</project-modules>

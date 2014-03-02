@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" language="javascript" src="http://localhost:8080/gwtClient/gwtClient/gwtClient.nocache.js"></script>
+
+<!-- <script type="text/javascript" src="file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/lib/cometd.js"></script> -->
+<!-- <script type="text/javascript" src="file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/lib/json2.js"></script> -->
+<!-- <script type="text/javascript" src="file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/lib/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/lib/jquery.cometd.js"></script> -->
+<!-- <script type="text/javascript" src="file:///Users/thomashettel/git-test/collabware-test/collabware.web/src/main/webapp/js/lib/jquery-ui-1.8.18.custom.min.js"></script> -->
+<script type="text/javascript" src="scripts/lib/jquery.js"></script>
+<script type="text/javascript" data-main="scripts/taskboard/main.js" src="scripts/lib/require.js"></script>
+<script type="text/javascript">
+require.config({
+    baseUrl: "",
+    paths: {
+//         "collabware": 	"file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/collabware",
+//         "lib": 			"file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/lib",
+//         "ui": 			"/collabware.web/src/main/webapp/js/ui",
+        "taskboard": 	"/taskboard/scripts/taskboard",
+    },
+    waitSeconds: 5
+  });
+</script>
+
+<script>
+// 	require(["collabware/Configuration"], function configureSessionFactory (Configuration) {
+// 		Configuration.setDocumentId("blah");
+// 		Configuration.setMockServerResponses(true);
+// 	});
+gwtClientLoaded = function () {
+	var session = new collabware.LocalSession();
+	window.collabwareSession = session;
+	startCollaboration(session);
+}
+</script>
+
+<style type="text/css">
+html,body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.NewTask {
+	background-color: yellow;
+	width: 60px;
+	height: 40px;
+	border: 1px solid darkgray;
+	margin: 3px;
+	padding: 2px;
+	display: inline-block;
+	box-shadow: 2px 2px 10px darkgray;
+	font-family: Comic Sans, Comic Sans MS, cursive;
+	font-size: 10pt;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#NewUserStory {
+	height:50px;
+	color: lightgray;
+}
+.DeleteTask {
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+}
+</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+// 	var collaborationStarted = false
+// 	require(["collabware/Collaboration"], function (theCollaboration) {
+// 		if (collaborationStarted) return;
+// 		collaborationStarted = true;
+// 		window.collabware = theCollaboration;
+// 		window.startCollaboration(theCollaboration);
+// 		setTimeout(function () {
+// 			theCollaboration.join();			
+// 		}, 300);
+// 	});
+	</script>
+	
+	<table width="100%" class="TaskBoard" id="TaskBoard">
+		<thead>
+			<tr height="40px">
+				<td width="20px"></td>
+				<td width="25%" id="ToDo">ToDo</td>
+				<td width="50%" id="InProgress">In Progress</td>
+				<td width="25%" id="Done">Done</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr id="NewUserStory">
+				<td></td>
+				<td>Drag task here to create a new user story.</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="4">
+					<div class="NewTask" id="YellowNewTask"></div>
+					<div class="DeleteTask" id="DeleteCard">Drag here to delete</div>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

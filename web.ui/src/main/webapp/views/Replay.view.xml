@@ -1,0 +1,27 @@
+<core:View xmlns="sap.ui.commons" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:ux3="sap.ui.ux3" xmlns:m="sap.m"
+	controllerName="views.Replay">
+
+	<ux3:ToolPopup id="ReplayPopup"
+		open="startReplay" closed="endReplay" visible="false">
+		<layout:VerticalLayout>
+			<Toolbar>
+				<items>
+					<Button styled="true" text="I&lt;" id="beginning" press="beginning"/>
+					<Button id="back" text="&lt;&lt;" press="back"/>
+					<Button id="stop" text="II" press="stop" enabled="false"/>
+					<Button id="play" text="&gt;" press="play"/>
+					<Button id="forward" text=">>" press="forward"/>
+					<Button id="end" text="&gt;I" press="end"/>
+				</items>
+				<rightItems>
+					<ToolbarSeparator/>
+					<Button id="close" text="Close" press="close"/>
+				</rightItems>
+			</Toolbar>
+			<Slider id="Slider" liveChange="seek" smallStepWidth="1" value="0" />
+		</layout:VerticalLayout>
+	</ux3:ToolPopup>
+
+</core:View>

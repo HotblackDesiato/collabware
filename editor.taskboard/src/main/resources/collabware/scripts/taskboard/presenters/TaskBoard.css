@@ -1,0 +1,22 @@
+.TaskBoard {
+	font-family: fantasy, Sans, Comic Sans MS, cursive;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+.TaskBoard>thead {
+	font-weight: bold;
+	text-align: center;
+	font-size: 16pt;
+	color: rgb(82, 82, 82);
+}
+
+.TaskBoard>tbody>tr:nth-child(odd) {
+	background-color: #fbfbfb;
+}
+.TaskBoard>tbody>tr:nth-child(odd)>td {
+	border-right: 1px solid white;
+}
+.TaskBoard>tbody>tr:nth-child(even)>td {
+	border-right: 1px solid #f1f1f1;
+}

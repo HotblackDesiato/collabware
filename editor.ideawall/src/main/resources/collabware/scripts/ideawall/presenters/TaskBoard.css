@@ -1,0 +1,14 @@
+.TaskBoard {
+	font-family: sans-serif;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+.TaskBoard>thead {
+	text-align: center;
+	font-size: 14pt;
+}
+
+.TaskBoard>tbody>tr>td {
+	border: 3px solid gray;
+}

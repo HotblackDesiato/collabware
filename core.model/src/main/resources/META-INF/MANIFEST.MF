@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Export-Package: collabware.model
+Bundle-Vendor: Thomas
+Bundle-Version: 2.3.0
+Tool: Bundlor 1.0.0.RELEASE
+Bundle-Name: CollabWare Model
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: collabware.model
+Import-Package: org.springframework.stereotype;version="[3.0, 3.1)"

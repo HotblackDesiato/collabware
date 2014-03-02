@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+selfhosting.binExcludes=/core.utils/target/test-classes,/core.utils/target/test-classes

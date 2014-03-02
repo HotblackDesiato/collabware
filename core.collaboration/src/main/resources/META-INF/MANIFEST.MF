@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Export-Package: collabware.collaboration.exceptions,collabware.collabo
+ ration;uses:="collabware.collaboration.exceptions,collabware.api.mode
+ l"
+Built-By: thomashettel
+Build-Jdk: 1.6.0_24
+Bundle-Version: 0.0.1.SNAPSHOT
+Tool: Bnd-0.0.238
+Bundle-Name: Collabware Collaboration
+Bnd-LastModified: 1301853182745
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: collabware.collaboration
+Import-Package: collabware.api.model,collabware.collaboration,collabwa
+ re.collaboration.exceptions
+

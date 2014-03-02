@@ -1,0 +1,21 @@
+<core:View xmlns="sap.ui.commons" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:ux3="sap.ui.ux3" xmlns:m="sap.m"
+	controllerName="views.AddParticipant"
+	>
+
+	<ux3:ToolPopup id="AddParticipantPopup"
+		opener="" visible="false" title="Add Participant" autoClose="true">
+		<layout:VerticalLayout>
+		<SearchField width="200px" enableListSuggest="false" enableClear="true" startSuggestion="0" suggest="filter" />
+		<ListBox id="Collaborators" class="DocumentTypes" visibleItems="10" minWidth="200px" displayIcons="true" items="{/contacts}" select="select">
+			<core:ListItem key="{id}" text="{displayName}" icon="{imageUrl}" />
+		</ListBox>
+		</layout:VerticalLayout>
+		<ux3:buttons>
+			<Button  id="AddParticipant" text="Add Participant" enabled="false" press="addParticipant"/>	
+			<Button text="Close" press="close"/>
+		</ux3:buttons>
+	</ux3:ToolPopup>
+
+</core:View>

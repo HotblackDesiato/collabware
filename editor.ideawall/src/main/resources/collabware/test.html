@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" language="javascript" src="http://localhost:8080/collabware/jsclient/jsclient.nocache.js"></script>
+<script type="text/javascript" src="scripts/lib/jquery.js"></script>
+<!-- <script type="text/javascript" src="scripts/lib/jquery.mobile-1.1.0.min.js"></script> -->
+<script type="text/javascript" data-main="scripts/ideawall/main.js" src="scripts/lib/require.js"></script>
+<link href="styles/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+require.config({
+    baseUrl: "",
+    paths: {
+//         "collabware": 	"file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/collabware",
+//         "lib": 			"file:///Users/thomashettel/git-test/collabware-test/collabware.jsClient/src/main/webapp/js/lib",
+//         "ui": 			"/collabware.web/src/main/webapp/js/ui",
+        "ideawall": 	"file:///Users/thomashettel/git-test/collabware-test/app.ideawall/src/main/webapp/scripts/ideawall",
+    },
+    waitSeconds: 5
+  });
+</script>
+
+<script>
+// 	require(["collabware/Configuration"], function configureSessionFactory (Configuration) {
+// 		Configuration.setDocumentId("blah");
+// 		Configuration.setMockServerResponses(true);
+// 	});
+gwtClientLoaded = function () {
+	function start() {
+		if (window.startCollaboration) {
+			var session = new collabware.LocalSession();
+			window.collabwareSession = session;
+			session.connect("");
+			window.startCollaboration(window.collabwareSession);
+		} else {
+		setTimeout(start, 100);
+			
+		}
+	}
+	start();
+}
+// $(function(){
+// 	setTimeout(start, 100);
+// 	})
+// });
+</script>
+
+</head>
+<body>
+	<div class="Board" id="Board">
+	
+	</div>
+	<div class="ToolBar">
+		<div class="Tool NewCard Yellow" id="YellowNewCard"></div>
+		<div class="Tool NewCard Red" id="RedNewCard"></div>
+		<div class="Tool NewCard Green" id="GreenNewCard"></div>
+		<div class="Tool NewCard Blue" id="BlueNewCard"></div>
+		<div class="Tool DeleteCard" id="DeleteCard">Drag here to delete</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<core:View xmlns="sap.ui.commons" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="views.Document" xmlns:ux3="sap.ui.ux3" xmlns:m="sap.m">
+	<html:style>
+		.Button{
+		font-size: 13pt;
+		display: inline-block;
+		vertical-align: bottom;
+		padding: 4px!important;
+		width: 25px;
+	}
+
+	.LeftMargin {
+		margin-left:20px;	
+	}
+	.DocumentTypes  img {
+		height:30px;
+	}
+	
+	.ParticipantRepeater {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.ParticipantRepeater img {
+		height:25px;
+	}
+	.ParticipantRepeater li {
+		display: inline-block;
+		margin:2px;
+	}
+	
+	.DocumentToolBar  {
+		height:35px!Important;
+		border-bottom:1px solid gray;
+	}
+	.DocumentToolBar .DocumentTitle {
+		font-size:18px;
+	}
+	.DocumentToolBar .sapUiTbContLeft.sapUiTbCont {
+		height:35px!Important;
+	}
+	.sapUiTb {
+	}
+	</html:style>
+	<layout:BorderLayout height="100%">
+		<layout:top>
+			<layout:BorderLayoutArea size="44px">
+				<Toolbar id="DocumentToolbar" class="DocumentToolBar sapUiAppHdr" desgin="Standard" standalone="true" width="100%">
+					<items>
+						<Image src="{/imageUrl}" height="30px" />
+						<TextView text="{/name}" class="DocumentTitle" />
+					</items>
+					<rightItems>
+						<RowRepeater class="ParticipantRepeater" id="ParticipantsRepeater"
+							design="BareShell" numberOfRows="1000" rows="{/participants}">
+							<noData>
+								<TextView text="No Participants" />
+							</noData>
+							<Image src="{imageUrl}" tooltip="{displayName}" />
+						</RowRepeater>
+						<core:Icon class="Button sapUiBtn sapUiBtnLite sapUiBtnS sapUiBtnStd" src="sap-icon://add" id="AddParticipant"
+							tooltip="Add Participant" press="showParticipantSelector" />
+						<ToolbarSeparator />
+						<core:Icon class="Button sapUiBtn sapUiBtnLite sapUiBtnS sapUiBtnStd" src="sap-icon://past" id="StartReplay"
+							tooltip="Replay" press="startReplay" />
+					</rightItems>
+				</Toolbar>
+			</layout:BorderLayoutArea>
+		</layout:top>
+		<layout:center>
+			<layout:BorderLayoutArea id="IFrameGoesHere">
+				<html:iframe id="EditorIFrame" width="100%" height="100%" frameborder="0"></html:iframe>
+			</layout:BorderLayoutArea>
+		</layout:center>
+	</layout:BorderLayout>
+</core:View>
