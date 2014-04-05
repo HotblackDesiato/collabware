@@ -67,7 +67,7 @@ ToDos
 
 Known Issues
 ============
-* Connecting to the fist collaboration document after a server start fails. You need to refresh you browser.
+* Connecting to the first collaboration document fails after a server start. You need to refresh you browser.
 
 How To Add Your Own Editor
 ==========================
