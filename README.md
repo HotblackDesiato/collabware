@@ -9,7 +9,7 @@ Collabware was designed to be extensible. It can be extended in the following wa
 Collabware consists of a number of Eclipse projects/OSGi bundles which fall into 3 tiers: Core, Shell and Applications.
 
 Core:
-* core.api: Provides Interfaces and classes shared between other parts of collabware. As such it provides abstractions for Documents, Operations a Transformation
+* core.api: Provides Interfaces and classes shared between other parts of collabware. As such it provides abstractions for Documents, Operations and Transformation
 
 * core.model: Implements a graph-based Document (provided by collabware.api) and the corresponding Operations and Transformation.
 
